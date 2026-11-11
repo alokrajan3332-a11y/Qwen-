@@ -1,0 +1,10 @@
+# Pinned to match the release box. Unpinned torchvision is the classic Spaces
+# breakage: pip resolves it against PyPI and silently reinstalls a torch build that
+# may not carry sm_120 kernels for the Blackwell ZeroGPU backend.
+transformers==5.15.0
+accelerate==1.14.0
+bitsandbytes==0.50.1
+torchvision
+# HEIC/HEIF support: torchvision's decoder rejects them outright, so phone photos
+# fail without this. Optional at runtime -- app.py degrades to a clear error.
+pillow-heif
